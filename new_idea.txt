@@ -1,0 +1,9 @@
+
+# New Idea for the bot
+# "Get insulted by Donald Trump"
+
+# ask someone to insult Donald, when they do,
+# get their username, and give them a personalized insult from a Trump quote.
+# reply to their comment with the insult - "Donald Says - insult"
+# tweet the insult out on Larry's page
+
