@@ -41,8 +41,8 @@ def get_last_tweet_id(user_id):
 
 
 def get_mention():
-    """Return the tweet id number for the last person who mentioned Larry"""
-    mentions = sputnik.get_users_mentions(1503766612519706627)
+    """Return the tweet id number for the last person who mentioned LarryBot"""
+    mentions = sputnik.get_users_mentions(1511389283457724423)
     mention_data = mentions.data
 
     results = []
@@ -54,7 +54,7 @@ def get_mention():
 
 
 def respond_to_tweet(tweet_id_number):
-    """Respond to a tweet that mentions Larry"""
+    """Respond to a tweet that mentions LarryBot"""
     # Get the user's information who sent the tweet
     username = sputnik.get_tweet(id=tweet_id_number, expansions=["author_id"])
     # gets just the username of the person who sent a message to Larry
@@ -64,7 +64,7 @@ def respond_to_tweet(tweet_id_number):
         data = json.load(f)
         text = choice(data)
 
-        with open("template1.txt") as letter:
+        with open(f"replies/template_{randint(1, 10)}.txt") as letter:
             contents = letter.read()
             contents = contents.replace("[NAME]", str(ids))
             contents = contents.replace("[TEXT]", text)
@@ -75,7 +75,19 @@ def respond_to_tweet(tweet_id_number):
 # Activate Sputnik
 sputnik = get_client()
 
+# update all the template files with unique messages
+# write the code looking for new tweets mentioning LaryBot
+# Deploy
 
-respond_to_tweet(1511195457581592580)
-
+test = 0
+# Check for mentions and reply with the quote
+while test < 2:
+    time.sleep(10)
+    mention = get_mention()
+    if mention:
+        respond_to_tweet(mention)
+        test += 1
+    else:
+        print("nothing to report")
+        test += 1
 
