@@ -78,6 +78,7 @@ sputnik = get_client()
 # update all the template files with unique messages
 # write the code looking for new tweets mentioning LaryBot
 # Deploy
+# figure out a way to store mentions I've already replied too so I dont hit them twice.
 
 test = 0
 # Check for mentions and reply with the quote
